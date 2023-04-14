@@ -27,12 +27,14 @@ class Graphic(models.Model):
     This model has the following fields:
     - desc: the description of the graphic
     - id: the primary key
+    - url: the link of the graphic
     - category_id: foreign key to the category model
     - created_at: the date the graphic was created
     - updated_at: the date the graphic was updated
     """
 
     desc = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
