@@ -23,6 +23,11 @@ CACHES = {
     }
 }
 
+# CORS
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:5173",
+]
+
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
@@ -31,7 +36,7 @@ EMAIL_BACKEND = env(
 )
 
 # django-debug-toolbar
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------5x4       RW CFZCFC 26 3٣٥٣٥٥٥  ق٥ض  يثي
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
 INSTALLED_APPS += ["debug_toolbar"]  # noqa: F405
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
