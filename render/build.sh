@@ -6,5 +6,5 @@ set -o nounset
 
 pip install --upgrade pip
 pip install -r requirements/production.txt
-# python /app/manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
 python manage.py migrate
