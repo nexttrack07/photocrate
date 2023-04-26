@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 volumes:
   photocrate_local_postgres_data: {}
@@ -13,6 +13,7 @@ services:
     container_name: photocrate_local_django
     depends_on:
       - postgres
+      - elasticsearch
     volumes:
       - .:/app:z
     env_file:
@@ -33,6 +34,13 @@ services:
       - photocrate_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
 
   docs:
     image: photocrate_local_docs

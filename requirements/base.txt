@@ -21,3 +21,8 @@ djoser==2.1.0 # https://djoser.readthedocs.io/en/latest/getting_started.html
 dj-rest-auth==3.0.0 # https://dj-rest-auth.readthedocs.io/en/3.0.0/installation.html
 # DRF-spectacular for api documentation
 drf-spectacular==0.26.1  # https://github.com/tfranzel/drf-spectacular
+
+#Elasticsearch
+elasticsearch==7.14.0
+elasticsearch-dsl==7.4.0
+django-elasticsearch-dsl==7.3.0

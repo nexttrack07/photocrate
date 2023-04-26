@@ -3,3 +3,4 @@
 USE_DOCKER=yes
 IPYTHONDIR=/app/.ipython
 DJANGO_DEBUG=True
+ELASTICSEARCH_DSL_HOSTS=elasticsearch:9200

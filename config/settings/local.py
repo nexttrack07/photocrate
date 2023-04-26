@@ -61,3 +61,11 @@ INSTALLED_APPS += ["django_extensions"]  # noqa: F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+
+# Elasticsearch
+# https://django-elasticsearch-dsl.readthedocs.io/en/latest/settings.html
+
+ELASTICSEARCH_DSL = {
+    "default": {"hosts": env("ELASTICSEARCH_DSL_HOSTS", default="localhost:9200")},
+}
