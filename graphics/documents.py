@@ -1,5 +1,6 @@
 from django_elasticsearch_dsl import Document
 from django_elasticsearch_dsl.registries import registry
+from elasticsearch_dsl import field
 
 from graphics.models import Graphic
 
@@ -14,4 +15,15 @@ class GraphicDocument(Document):
         model = Graphic
         fields = [
             "desc",
+            "url",
+            "created_at",
+            "updated_at",
         ]
+
+    category_id = field.Keyword()
+
+    def prepare_category_id(self, instance):
+        return instance.category_id.id
+
+    def __str__(self):
+        return self.desc

@@ -23,6 +23,7 @@ urlpatterns = [
 urlpatterns += [
     # API base url
     path("api/", include("config.api_router")),
+    path("api/search/", include("search.urls")),
     # DRF auth token
     path("api/auth/", include("dj_rest_auth.urls")),
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
