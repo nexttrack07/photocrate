@@ -14,6 +14,7 @@ services:
     depends_on:
       - postgres
       - elasticsearch
+      - redis
     volumes:
       - .:/app:z
     env_file:
@@ -42,18 +43,16 @@ services:
     ports:
       - "9200:9200"
 
-  docs:
-    image: photocrate_local_docs
-    container_name: photocrate_local_docs
-    build:
-      context: .
-      dockerfile: ./compose/local/docs/Dockerfile
-    env_file:
-      - ./.envs/.local/.django
-    volumes:
-      - ./docs:/docs:z
-      - ./config:/app/config:z
-      - ./photocrate:/app/photocrate:z
-    ports:
-      - "9000:9000"
-    command: /start-docs
+  # celery:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/local/django/Dockerfile
+  #   command: celery --app=core worker --loglevel=info
+  #   volumes:
+  #     - ./config:/usr/src/app
+  #   depends_on:
+  #     - django
+  #     - redis
+
+  redis:
+    image: redis:7-alpine

@@ -82,6 +82,7 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
     "graphics",
     "search",
+    "photos",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -303,3 +304,5 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+PEXELS_API_KEY = env("PEXELS_API_KEY", default="")

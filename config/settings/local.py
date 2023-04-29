@@ -69,3 +69,11 @@ INSTALLED_APPS += ["django_extensions"]  # noqa: F405
 ELASTICSEARCH_DSL = {
     "default": {"hosts": env("ELASTICSEARCH_DSL_HOSTS", default="localhost:9200")},
 }
+
+# Celery Configuration
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = "UTC"  # Change this to your desired timezone.
+CELERY_BROKER_URL = env("CELERY_BROKER", default="redis://redis:6379/0")
+CELERY_RESULT_BACKEND = env("CELERY_BROKER", default="redis://redis:6379/0")

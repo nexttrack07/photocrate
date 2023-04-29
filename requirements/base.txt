@@ -6,6 +6,8 @@ redis==4.5.4  # https://github.com/redis/redis-py
 hiredis==2.2.2  # https://github.com/redis/hiredis-py
 requests==2.29.0
 celery==5.2.7
+httpx==0.24.0
+aiohttp==3.8.4
 
 # Django
 # ------------------------------------------------------------------------------
