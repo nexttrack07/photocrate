@@ -6,7 +6,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-from photos.views import PopularImages
+from photos.views import PopularImages, SearchImages
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -28,6 +28,7 @@ urlpatterns += [
     path("api/search/", include("search.urls")),
     # path("api/photos/", include("photos.urls")),
     path("api/popular-photos/", PopularImages.as_view(), name="popular-photos"),
+    path("api/search-photos/", SearchImages.as_view(), name="search-photos"),
     # DRF auth token
     path("api/auth/", include("dj_rest_auth.urls")),
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
