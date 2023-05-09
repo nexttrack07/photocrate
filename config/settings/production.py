@@ -8,6 +8,12 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["photocrate.app"])
 
+# CORS
+CORS_ORIGIN_WHITELIST = [
+    "https://prodsnap.onrender.com",
+    "https://prodsnap.io",
+]
+
 RENDER_EXTERNAL_HOSTNAME = env("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
