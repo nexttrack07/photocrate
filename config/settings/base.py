@@ -3,6 +3,7 @@ Base settings to build other settings files upon.
 """
 from pathlib import Path
 
+import cloudinary
 import environ
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -75,6 +76,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "dj_rest_auth",
     "django_elasticsearch_dsl",
+    "cloudinary",
 ]
 
 LOCAL_APPS = [
@@ -306,3 +308,17 @@ SPECTACULAR_SETTINGS = {
 # ------------------------------------------------------------------------------
 
 PEXELS_API_KEY = env("PEXELS_API_KEY", default="")
+
+# Cloudinary
+# ------------------------------------------------------------------------------
+cloudinary.config(
+    cloud_name=env("CLOUDINARY_CLOUD_NAME", default=""),
+    api_key=env("CLOUDINARY_API_KEY", default=""),
+    api_secret=env("CLOUDINARY_API_SECRET", default=""),
+    secure=True,
+)
+# Default file storage
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+# Replicate API KEY
+REPLICATE_API_KEY = env("REPLICATE_API_KEY", default="")
