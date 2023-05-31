@@ -5,7 +5,9 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework_simplejwt.views import TokenRefreshView
 
+from api_auth.views import MyTokenObtainPairView, RegisterView
 from photos.views import PopularImages, SearchImages
 
 urlpatterns = [
@@ -37,6 +39,9 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    path("api/auth/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/auth/register/", RegisterView.as_view(), name="auth_register"),
 ]
 
 if settings.DEBUG:
